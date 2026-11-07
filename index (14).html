@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Therapy Vocabulary · Word Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6eedb; --paper2:#efe3c6; --ink:#2f2a22; --muted:#6b5f4b;
+  --green:#3f6b3a; --green-d:#2c4d29; --kraft:#b98a55; --kraft-d:#8a6236;
+  --blue:#2f6db5; --card:#fffaf0; --good:#2e8b3e; --goodbg:#e3f4e1; --bad:#c2412d; --badbg:#fbe4df; --hl:#ffe36b;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--paper);
+  background-image:repeating-linear-gradient(0deg,transparent 0 33px,rgba(120,100,60,.08) 33px 34px);
+  color:var(--ink);font-family:'Lexend',system-ui,sans-serif;font-size:18px;line-height:1.6;
+  -webkit-tap-highlight-color:transparent;padding-bottom:40px;
+}
+header{background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;text-align:center;padding:16px 16px 22px;border-bottom:6px dashed var(--kraft)}
+.logo{max-width:200px;width:50%;display:block;margin:0 auto 8px;background:#fff;border-radius:14px;padding:6px}
+.tag{display:inline-block;font-family:'Kalam',cursive;background:var(--kraft);border-radius:999px;padding:2px 14px;font-size:15px}
+h1{font-family:'Kalam',cursive;font-size:2.2rem;line-height:1.1;margin:8px 0 2px}
+.sub{opacity:.9;font-size:.95rem}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.std{margin:16px 0 0;background:var(--card);border:2px dashed var(--kraft);border-radius:12px;padding:8px 14px;font-size:.8rem;color:var(--muted);line-height:1.45}
+.std b{color:var(--green-d)}
+.steps{display:flex;gap:4px;margin:16px 0 6px}
+.steps i{flex:1;height:10px;border-radius:99px;background:var(--paper2)}
+.steps i.done{background:#7fb35a}.steps i.now{background:var(--green)}
+.where{font-size:.85rem;color:var(--muted);text-align:center;margin-bottom:8px}
+.card{background:var(--card);border:3px solid var(--kraft);border-radius:22px;box-shadow:5px 5px 0 var(--kraft);padding:20px 20px 22px;margin:8px 0 18px}
+.card h2{font-family:'Kalam',cursive;color:var(--green-d);font-size:1.8rem;margin:0 0 6px;line-height:1.2}
+.word{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.word .em{font-size:3rem;line-height:1}
+.word .w{font-family:'Kalam',cursive;font-size:2.8rem;color:var(--blue);font-weight:700;line-height:1}
+.pr{color:var(--muted);font-size:1rem}
+.def{font-size:1.25rem;font-weight:600;margin:10px 0 14px}
+.box{border-radius:14px;padding:12px 14px;margin:10px 0;line-height:1.5}
+.box .lab{font-family:'Kalam',cursive;font-size:1.1rem;font-weight:700;display:block;margin-bottom:2px}
+.art{background:#fff6cf;border-left:6px solid #e6b800}
+.art mark{background:var(--hl);padding:0 3px;border-radius:4px;font-weight:600}
+.clue{text-decoration:underline wavy #c2412d 2px;text-underline-offset:4px}
+.kid{background:#e8f1fb;border-left:6px solid var(--blue)}
+.root{background:#eef5e6;border-left:6px solid var(--green)}
+.tip{background:#fbeee0;border-left:6px solid var(--kraft)}
+.btn{font-family:'Lexend',sans-serif;border:none;border-radius:14px;min-height:52px;padding:0 18px;font-size:1rem;font-weight:600;cursor:pointer;background:var(--paper2);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn.go{background:var(--green);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.hear{background:#e8f1fb;color:var(--blue);min-height:44px;padding:0 14px;font-size:.95rem}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:6px}
+.q{margin-top:18px;padding-top:14px;border-top:2px dashed var(--kraft)}
+.q .qlab{font-family:'Kalam',cursive;color:var(--kraft-d);font-size:1.15rem;font-weight:700}
+.qtext{font-weight:600;margin:4px 0 10px;font-size:1.1rem}
+.opts{display:grid;gap:10px}
+.opt{font-family:'Lexend',sans-serif;text-align:left;font-size:1.02rem;background:#fff;border:3px solid var(--paper2);border-radius:14px;padding:12px 14px;cursor:pointer;color:var(--ink);display:flex;gap:10px;align-items:flex-start;min-height:52px}
+.opt .l{flex:none;width:30px;height:30px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+.opt:hover:not(:disabled){border-color:var(--kraft)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.right .l{background:var(--good);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.opt.wrong .l{background:var(--bad);color:#fff}
+.fb{display:none;margin-top:12px;border-radius:14px;padding:12px 14px;line-height:1.5}
+.fb.show{display:block}
+.fb.good{background:var(--goodbg);border:2px solid var(--good)}
+.fb.bad{background:var(--badbg);border:2px solid var(--bad)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0}
+.tile{background:#fff;border:2px solid var(--kraft);border-radius:14px;padding:12px;text-align:center}
+.tile .e{font-size:2rem}.tile b{display:block;font-family:'Kalam',cursive;color:var(--blue);font-size:1.4rem}
+.stars{font-size:2.6rem;text-align:center;letter-spacing:4px;margin:6px 0}
+.score{text-align:center;font-size:1.4rem;font-weight:700}
+.miss{background:#fff;border:2px solid var(--paper2);border-radius:12px;padding:10px 12px;margin:8px 0;font-size:.95rem;line-height:1.45}
+.miss b{color:var(--good)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:10px}
+@media (max-width:520px){body{font-size:17px}.word .w{font-size:2.3rem}h1{font-size:1.9rem}.card{padding:16px}}
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="logo.png" alt="The Literacy Locksmith" onerror="this.style.display='none'">
+  <span class="tag">🔑 Vocabulary · Unit 2</span>
+  <h1>Pet Therapy Word Kit</h1>
+  <div class="sub">Words from “Pet Therapy: How Animals and Humans Heal Each Other”</div>
+</header>
+
+<div class="wrap">
+  <div class="std">
+    <b>ELA.6.V.1.1</b> Integrate academic vocabulary appropriate to grade level in speaking and writing.<br>
+    <b>ELA.6.V.1.3</b> Apply knowledge of context clues, figurative language, word relationships, reference materials, and/or background knowledge to determine the connotative and denotative meanings of words and phrases, appropriate to grade level.
+  </div>
+  <div class="steps" id="steps"></div>
+  <div class="where" id="where"></div>
+  <div id="stage"></div>
+  <footer>Vocabulary lesson by Mrs. Rees</footer>
+</div>
+<canvas id="confetti"></canvas>
+
+<script>
+/* ================= CONTENT ================= */
+const WORDS = [
+ {w:"perpetually", em:"🐕", pr:"(pur PEHCH oo uh lee)", pos:"adverb",
+  def:"all the time; without stopping",
+  art:'Vi, a chunky yellow Labrador retriever with a <mark>perpetually</mark> wagging tail, greets families as they come downstairs in the morning…', para:4,
+  artSay:"Vi, a chunky yellow Labrador retriever with a perpetually wagging tail, greets families as they come downstairs in the morning.",
+  kid:"If your little brother is <b>perpetually</b> hungry, it seems like he wants a snack every single minute of the day!",
+  kidSay:"If your little brother is perpetually hungry, it seems like he wants a snack every single minute of the day!",
+  root:"From Latin <b>perpetuus</b> = “continuing throughout.” Word family: <i>perpetual, perpetuate</i>.",
+  rootSay:"Perpetually comes from the Latin word perpetuus, which means continuing throughout. Word family: perpetual, perpetuate.",
+  tip:"🔍 <b>Suffix clue!</b> The ending <b>-ly</b> tells you this word describes HOW something happens. Vi’s tail wags… all the time!",
+  tipSay:"Suffix clue! The ending L Y tells you this word describes how something happens. Vi's tail wags, all the time!",
+  q:{t:"Which sentence describes something that happens PERPETUALLY?", o:["A comet that passes Earth once every 76 years","A river that flows day and night without stopping","A birthday party that happens once a year","A fire drill that happens once a month"], a:1,
+     ex:"Perpetually means all the time, without stopping. A river that flows day and night never stops."}},
+ {w:"bucolic", em:"🌾", pr:"(byoo KOL ihk)", pos:"adjective",
+  def:"like the countryside",
+  art:'She can even be “checked out” for a walk around the <mark>bucolic</mark> NIH grounds.', para:4,
+  artSay:"She can even be checked out for a walk around the bucolic N. I. H. grounds.",
+  kid:"A farm with rolling green hills, a red barn, and cows munching grass is a <b>bucolic</b> scene.",
+  kidSay:"A farm with rolling green hills, a red barn, and cows munching grass is a bucolic scene.",
+  root:"From Greek <b>boukolos</b> = “cowherd” (a person who takes care of cows). That’s why it makes you picture peaceful farm fields!",
+  rootSay:"Bucolic comes from the Greek word boukolos, which means cowherd, a person who takes care of cows. That's why it makes you picture peaceful farm fields!",
+  tip:"💭 <b>Connotation!</b> <i>Bucolic</i> has a <b>positive</b> feeling: calm, green, and peaceful. The author could have said the grounds were “far from the city,” but <i>bucolic</i> makes them sound relaxing.",
+  tipSay:"Connotation! Bucolic has a positive feeling: calm, green, and peaceful. The author could have said the grounds were far from the city, but bucolic makes them sound relaxing.",
+  q:{t:"Which place is the MOST bucolic?", o:["A busy subway station at rush hour","A crowded shopping mall","A quiet meadow with sheep grazing near a pond","A parking garage downtown"], a:2,
+     ex:"Bucolic means like the countryside. A quiet meadow with sheep is a peaceful country scene."}},
+ {w:"hormone", em:"🧪", pr:"(HAWR mohn)", pos:"noun",
+  def:"chemical that carries signals between parts of the body",
+  art:'…studies have been focusing on the fact that interacting with animals can increase people’s level of the <mark>hormone</mark> oxytocin.', para:10,
+  artSay:"Studies have been focusing on the fact that interacting with animals can increase people's level of the hormone oxytocin.",
+  kid:"Think of a <b>hormone</b> like a text message your body sends. When you’re scared, your body sends the hormone <i>adrenaline</i>, and the message says, “Heart, beat faster!”",
+  kidSay:"Think of a hormone like a text message your body sends. When you're scared, your body sends the hormone adrenaline, and the message says, Heart, beat faster!",
+  root:"From Greek <b>hormaein</b> = “to set in motion.” Hormones get your body moving into action!",
+  rootSay:"Hormone comes from the Greek word hormaein, which means to set in motion. Hormones get your body moving into action!",
+  tip:"🐶 <b>In the article:</b> Petting animals can raise your level of the hormone <b>oxytocin</b>, which “helps us feel happy and trusting” (paragraph 11).",
+  tipSay:"In the article: Petting animals can raise your level of the hormone oxytocin, which helps us feel happy and trusting. That's in paragraph 11.",
+  q:{t:"According to the article, what does the hormone oxytocin do?", o:["It helps people feel happy and trusting","It makes people’s hair grow faster","It helps dogs learn tricks","It makes people feel sleepy"], a:0,
+     ex:"In paragraph 11, Johnson says, “Oxytocin helps us feel happy and trusting.”"}},
+ {w:"beneficial", em:"💚", pr:"(behn uh FIHSH uhl)", pos:"adjective",
+  def:"helpful; producing good results",
+  art:'“That is very <mark>beneficial</mark> for us,” says Johnson. “Oxytocin <span class="clue">helps us feel happy and trusting</span>.”', para:11,
+  artSay:"That is very beneficial for us, says Johnson. Oxytocin helps us feel happy and trusting.",
+  kid:"Eating vegetables and getting a good night’s sleep are <b>beneficial</b>. They help your body and brain work their best.",
+  kidSay:"Eating vegetables and getting a good night's sleep are beneficial. They help your body and brain work their best.",
+  root:"From Latin <b>bene</b> = “good, well” + <b>facere</b> = “to do, to make.” Word family: <i>benefit, benefactor</i>.",
+  rootSay:"Beneficial comes from two Latin parts. Bene means good or well, and facere means to do or to make. Word family: benefit, benefactor.",
+  tip:"🔍 <b>Context clue!</b> Right after Johnson says oxytocin is beneficial, she explains how: it “helps us feel happy and trusting.”",
+  tipSay:"Context clue! Right after Johnson says oxytocin is beneficial, she explains how: it helps us feel happy and trusting.",
+  q:{t:"Which of these is BENEFICIAL to a dog at an animal shelter?", o:["Being left alone in a cage all day","Being walked and played with by volunteers","Hearing loud noises all night","Skipping meals"], a:1,
+     ex:"Beneficial means helpful. The article says shelter dogs that were walked were more likely to be adopted."}},
+ {w:"therapeutic", em:"🐴", pr:"(thehr uh PYOO tihk)", pos:"adjective",
+  def:"helping to heal or to make a person feel better",
+  art:'“The beauty of the horse is that it can be <mark>therapeutic</mark> in so many different ways,” says Breeanna Bornhorst…', para:17,
+  artSay:"The beauty of the horse is that it can be therapeutic in so many different ways, says Breeanna Bornhorst.",
+  kid:"A warm bath after a long soccer game can feel <b>therapeutic</b>. It helps your sore muscles feel better.",
+  kidSay:"A warm bath after a long soccer game can feel therapeutic. It helps your sore muscles feel better.",
+  root:"From Greek <b>therapeuein</b> = “to treat, to heal.” Word family: <i>therapy, therapist</i>. Look at the title: <i>Pet <b>Therapy</b></i>!",
+  rootSay:"Therapeutic comes from the Greek word therapeuein, which means to treat, or to heal. Word family: therapy, therapist. Look at the title: Pet Therapy!",
+  q:{t:"In paragraphs 17–22, how is horseback riding therapeutic for Ryan?", o:["It helps him win riding contests","It helps him get to school faster","It helps his speech improve and builds life skills","It helps him learn to take care of horses"], a:2,
+     ex:"Coleman says Ryan’s speech has improved since he started riding, and his mother says it helped him follow directions and with balance."}},
+ {w:"socialization", em:"🤝", pr:"(soh shuh luh ZAY shuhn)", pos:"noun",
+  def:"process of learning to live with others",
+  art:'…they were significantly more likely to be adopted if they were in the dog-walking group,” she says, thanks to the additional exercise and <mark>socialization</mark> they were getting.', para:30,
+  artSay:"They were significantly more likely to be adopted if they were in the dog-walking group, she says, thanks to the additional exercise and socialization they were getting.",
+  kid:"When a puppy goes to the dog park, meets new people, and learns to play nicely with other dogs, that’s <b>socialization</b>. Kids get socialization at school, too!",
+  kidSay:"When a puppy goes to the dog park, meets new people, and learns to play nicely with other dogs, that's socialization. Kids get socialization at school, too!",
+  root:"From Latin <b>socius</b> = “companion, friend.” Word family: <i>social, society, sociable</i>.",
+  rootSay:"Socialization comes from the Latin word socius, which means companion or friend. Word family: social, society, sociable.",
+  tip:"🔍 <b>Suffix clue!</b> The ending <b>-ation</b> turns a word into a noun that means “the process of.” Socialize → social<b>ization</b> = the process of becoming social.",
+  tipSay:"Suffix clue! The ending ation turns a word into a noun that means the process of. Socialize becomes socialization, the process of becoming social.",
+  q:{t:"Which activity gives a shy puppy the MOST socialization?", o:["Sleeping alone in its crate","Meeting friendly people and dogs at a park","Chewing on a bone by itself","Looking out the window"], a:1,
+     ex:"Socialization is learning to live with others. Meeting people and dogs helps the puppy learn to get along."}},
+ {w:"premise", em:"💡", pr:"(PREHM ihs)", pos:"noun",
+  def:"idea thought to be true",
+  art:'Johnson says it’s critical to establish the scientific foundation for the <mark>premise</mark> that animals are good for people, even if that seems obvious.', para:35,
+  artSay:"Johnson says it's critical to establish the scientific foundation for the premise that animals are good for people, even if that seems obvious.",
+  kid:"Our science experiment started with the <b>premise</b> that plants grow faster in sunlight. Then we tested it to see if it was really true!",
+  kidSay:"Our science experiment started with the premise that plants grow faster in sunlight. Then we tested it to see if it was really true!",
+  root:"From Latin <b>prae</b> = “before” + <b>mittere</b> = “to send, to put.” A premise is an idea you “put before” everything else. Word family (mit/mis): <i>mission, transmit</i>.",
+  rootSay:"Premise comes from two Latin parts. Prae means before, and mittere means to send or to put. A premise is an idea you put before everything else. Word family: mission, transmit.",
+  tip:"⚠️ <b>Multiple meanings!</b> <i>Premises</i> (with an <b>s</b>) can mean a building and its land: “No dogs allowed on the premises.” Use context to decide!",
+  tipSay:"Multiple meanings! Premises, with an S, can mean a building and its land: No dogs allowed on the premises. Use context to decide!",
+  q:{t:"According to paragraph 35, what is the premise that scientists want to prove?", o:["That dogs are smarter than cats","That animals are good for people","That horses are the best therapy animals","That pet food is healthy"], a:1,
+     ex:"Paragraph 35 says scientists want to establish a foundation for “the premise that animals are good for people.”"}}
+];
+
+const PRACTICE = [
+ {t:"The baby was ________ curious, reaching for everything she could touch all day long.", o:["bucolic","perpetually","premise","hormone"], a:1,
+  ex:"Perpetually means all the time. The baby reached for things “all day long.”"},
+ {t:"After weeks in the noisy city, Grandpa loved the ________ quiet of his farm, with its open fields and grazing sheep.", o:["perpetually","therapeutic","bucolic","socialization"], a:2,
+  ex:"Bucolic means like the countryside. Open fields and grazing sheep are a country scene."},
+ {t:"Drinking water and getting enough sleep are ________ for your brain.", o:["beneficial","bucolic","premise","hormone"], a:0,
+  ex:"Beneficial means helpful. Water and sleep help your brain."},
+ {t:"Swimming in warm water can be ________ for people recovering from injuries.", o:["bucolic","hormone","premise","therapeutic"], a:3,
+  ex:"Therapeutic means helping to heal. Warm-water swimming helps injured people feel better."},
+ {t:"Which word is a SYNONYM (means the same) for beneficial?", o:["harmful","helpful","boring","noisy"], a:1,
+  ex:"Beneficial and helpful both mean producing good results. Harmful is the opposite."},
+ {t:"Which word is an ANTONYM (means the opposite) of perpetually?", o:["constantly","always","rarely","forever"], a:2,
+  ex:"Perpetually means all the time. Rarely means almost never, which is the opposite."},
+ {t:"Read paragraph 11: “That is very beneficial for us,” says Johnson. “Oxytocin helps us feel happy and trusting.” Which words BEST help you understand beneficial?", o:["“says Johnson”","“helps us feel happy and trusting”","“That is very”","“Oxytocin”"], a:1,
+  ex:"“Helps us feel happy and trusting” shows that something beneficial gives good results."},
+ {t:"Beneficial contains the Latin root bene, meaning “good” or “well.” Which word ALSO has this root?", o:["bench","beneath","benefit","bent"], a:2,
+  ex:"A benefit is a good result, so it uses the root bene. Bench, beneath, and bent just start with the same letters."},
+ {t:"Therapeutic comes from a Greek word meaning “to heal.” Which word belongs to the same word family?", o:["therapy","thermometer","theater","theory"], a:0,
+  ex:"Therapy is a treatment that helps heal. A thermometer measures heat (therm = heat), so it is not in this family."},
+ {t:"Read paragraph 30. The shelter dogs were more likely to be adopted thanks to “the additional exercise and socialization they were getting.” What does socialization mean here?", o:["The dogs were getting more food","The dogs were learning to get along with people","The dogs were sleeping more","The dogs were learning to run faster"], a:1,
+  ex:"Socialization is the process of learning to live with others. Walking with volunteers helped the dogs get used to people."},
+ {t:"Read this sentence: “The sign said, ‘No pets allowed on the premises.’” What does premises mean HERE?", o:["an idea thought to be true","the building and land of a place","a kind of hormone","a science experiment"], a:1,
+  ex:"Premise has multiple meanings. On a sign, “the premises” means the building and its land."},
+ {t:"The author describes the NIH grounds as “bucolic” instead of “far out in the country.” What feeling does the word bucolic create?", o:["Peaceful and pleasant","Lonely and boring","Scary and dangerous","Crowded and noisy"], a:0,
+  ex:"Bucolic has a positive connotation. It makes the grounds sound calm and relaxing, a nice place for families to walk with Vi."},
+ {t:"Which sentence uses hormone correctly?", o:["My dog fetched the hormone from the backyard.","We planted a hormone in our garden.","When you are scared, your body releases a hormone that makes your heart beat faster.","The hormone rang at the end of class."], a:2,
+  ex:"A hormone is a chemical that carries signals in the body, like the signal to make your heart beat faster."},
+ {t:"Which sentence BEST explains why scientists want to prove the premise in paragraphs 35–36?", o:["They want to sell more pet food.","They want the field to be based on scientific data, not just “warm fuzzy feelings.”","They think animals are not good for people.","They want to close animal shelters."], a:1,
+  ex:"In paragraph 36, Johnson says, “The last thing we want is for an entire field to be based on warm fuzzy feelings and not on scientific data.”"}
+];
+
+/* ================= STEPS ================= */
+const STEPS = [{k:'intro'}];
+WORDS.forEach((w,i)=>STEPS.push({k:'learn',i}));
+STEPS.push({k:'pintro'});
+PRACTICE.forEach((q,i)=>STEPS.push({k:'prac',i}));
+STEPS.push({k:'results'});
+
+/* ================= SAVE (device storage) ================= */
+const KEY='rees-pettherapy-vocab-v1';
+let S={step:0, learn:{}, prac:{}, celebrated:false};
+try{ const d=JSON.parse(localStorage.getItem(KEY)); if(d && typeof d.step==='number') S=Object.assign(S,d); }catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+
+/* ================= SPEECH ================= */
+const synth=window.speechSynthesis; let voice=null;
+function pickVoice(){
+  if(!synth) return; const vs=synth.getVoices(); if(!vs.length) return;
+  const pref=["Google US English","Samantha","Ava","Allison","Susan","Zoe","Nicky","Microsoft Aria","Microsoft Jenny"];
+  for(const n of pref){ const v=vs.find(v=>v.name.indexOf(n)===0 && /en[-_]US/i.test(v.lang)); if(v){voice=v;return;} }
+  voice=vs.find(v=>/en[-_]US/i.test(v.lang))||null;
+}
+if(synth){ pickVoice(); synth.onvoiceschanged=pickVoice; }
+function say(text){
+  if(!synth) return; synth.cancel();
+  const clean=text.replace(/\bNIH\b/g,'N. I. H.').replace(/[“”]/g,'').replace(/_{3,}/g,' blank ');
+  setTimeout(()=>{ const u=new SpeechSynthesisUtterance(clean); if(voice)u.voice=voice; u.lang='en-US'; u.rate=0.9; synth.speak(u); },120);
+}
+function sayQ(q){ say(q.t+'. '+q.o.map((o,i)=>'ABCD'[i]+'. '+o).join('. ')); }
+
+/* ================= RENDER ================= */
+const stage=document.getElementById('stage');
+const L='ABCD';
+
+function render(){
+  if(synth) synth.cancel();
+  const st=STEPS[S.step];
+  // progress bar
+  document.getElementById('steps').innerHTML=STEPS.map((x,i)=>`<i class="${i<S.step?'done':i===S.step?'now':''}"></i>`).join('');
+  document.getElementById('where').textContent =
+    st.k==='intro'?'Start':st.k==='learn'?`Learn · Word ${st.i+1} of ${WORDS.length}`:
+    st.k==='pintro'?'Ready to practice':st.k==='prac'?`Practice · Question ${st.i+1} of ${PRACTICE.length}`:'Results';
+
+  if(st.k==='intro') stage.innerHTML=`
+    <div class="card">
+      <h2>Welcome, Word Explorer! 🐾</h2>
+      <p>Scientists who study how animals help people use powerful words to explain what they discover. In this word kit, you will learn <b>${WORDS.length} words</b> from “Pet Therapy: How Animals and Humans Heal Each Other.”</p>
+      <div class="tiles">${WORDS.map(w=>`<div class="tile"><div class="e">${w.em}</div><b>${w.w}</b></div>`).join('')}</div>
+      <p>For each word, you’ll hear what it means, see it in the article, and try a quick check. Then you’ll practice all the words. Tap <b>🔊</b> any time to hear things read aloud.</p>
+      <div class="nav"><button class="btn hear" id="h">🔊 Read to me</button><button class="btn go" id="nx">Let’s Go ➜</button></div>
+    </div>`;
+
+  if(st.k==='learn'){
+    const w=WORDS[st.i], ans=S.learn[st.i];
+    stage.innerHTML=`
+    <div class="card">
+      <div class="word"><span class="em">${w.em}</span><div><div class="w">${w.w}</div><div class="pr">${w.pr} · ${w.pos}</div></div>
+        <button class="btn hear" id="hw" style="margin-left:auto">🔊 Hear word</button></div>
+      <div class="def">Means: ${w.def}</div>
+      <div class="box art"><span class="lab">📖 In the article (paragraph ${w.para})</span>${w.art}</div>
+      <div class="box kid"><span class="lab">💡 Think of it like this</span>${w.kid}</div>
+      ${w.tip?`<div class="box tip">${w.tip}</div>`:''}
+      <div class="box root"><span class="lab">🌱 Word roots</span>${w.root}</div>
+      <button class="btn hear" id="h">🔊 Read this card to me</button>
+      ${qHTML('Quick Check', w.q, ans)}
+      <div class="nav"><button class="btn" id="bk">⬅ Back</button><button class="btn go" id="nx" ${ans===undefined?'disabled':''}>Next ➜</button></div>
+    </div>`;
+    document.getElementById('hw').onclick=()=>say(w.w);
+    bindQ(w.q, ans, v=>{S.learn[st.i]=v;});
+  }
+
+  if(st.k==='pintro') stage.innerHTML=`
+    <div class="card">
+      <h2>Word Practice 🎯</h2>
+      <p>Great work learning all ${WORDS.length} words! Now answer <b>${PRACTICE.length} questions</b>. Some ask you to pick the word that fits, some ask about context clues, and some ask about word roots.</p>
+      <div class="box tip">⭐ You get <b>one try</b> for each question, so read carefully. Tap 🔊 to hear any question.</div>
+      <div class="tiles">${WORDS.map(w=>`<div class="tile"><div class="e">${w.em}</div><b>${w.w}</b><span style="font-size:.85rem">${w.def}</span></div>`).join('')}</div>
+      <div class="nav"><button class="btn" id="bk">⬅ Back</button><button class="btn go" id="nx">Start Practice ➜</button></div>
+    </div>`;
+
+  if(st.k==='prac'){
+    const q=PRACTICE[st.i], ans=S.prac[st.i];
+    stage.innerHTML=`<div class="card" style="padding-top:6px">
+      ${qHTML('Question '+(st.i+1), q, ans, true)}
+      <div class="nav"><button class="btn" id="bk">⬅ Back</button><button class="btn go" id="nx" ${ans===undefined?'disabled':''}>${st.i===PRACTICE.length-1?'See My Score 🏆':'Next ➜'}</button></div>
+    </div>`;
+    bindQ(q, ans, v=>{S.prac[st.i]=v;});
+  }
+
+  if(st.k==='results'){
+    const right=PRACTICE.filter((q,i)=>S.prac[i]===q.a).length, tot=PRACTICE.length;
+    const pct=right/tot, stars=pct>=.9?3:pct>=.7?2:1;
+    const msg=stars===3?'Word Expert! You unlocked every word! 🔑':stars===2?'Great job, Explorer! Review the words below to master them.':'Good effort! Go back over the word cards and try again.';
+    const missed=PRACTICE.map((q,i)=>({q,i})).filter(x=>S.prac[x.i]!==x.q.a);
+    stage.innerHTML=`
+    <div class="card">
+      <h2 style="text-align:center">You finished! 🎉</h2>
+      <div class="stars">${'⭐'.repeat(stars)}${'☆'.repeat(3-stars)}</div>
+      <div class="score">${right} out of ${tot} correct</div>
+      <p style="text-align:center">${msg}</p>
+      ${missed.length?`<h2 style="font-size:1.4rem">Words to review</h2>`+missed.map(x=>`<div class="miss">${x.i+1}. ${x.q.t}<br>Answer: <b>${x.q.o[x.q.a]}</b><br><span style="color:var(--muted)">${x.q.ex}</span></div>`).join(''):''}
+      <div class="nav" style="margin-top:14px"><button class="btn" id="redo">↺ Try Practice Again</button><button class="btn go" id="restart">Start Whole Kit Over</button></div>
+    </div>`;
+    document.getElementById('redo').onclick=()=>{ S.prac={}; S.celebrated=false; S.step=STEPS.findIndex(x=>x.k==='pintro'); save(); render(); scrollTo(0,0); };
+    document.getElementById('restart').onclick=()=>{ S={step:0,learn:{},prac:{},celebrated:false}; save(); render(); scrollTo(0,0); };
+    if(!S.celebrated){ S.celebrated=true; save(); confetti(); }
+  }
+
+  // shared nav
+  const nx=document.getElementById('nx'), bk=document.getElementById('bk'), h=document.getElementById('h');
+  if(nx) nx.onclick=()=>{ S.step++; save(); render(); scrollTo({top:0,behavior:'smooth'}); };
+  if(bk) bk.onclick=()=>{ S.step--; save(); render(); scrollTo({top:0,behavior:'smooth'}); };
+  if(h){
+    if(st.k==='intro') h.onclick=()=>say("Welcome, Word Explorer! In this word kit, you will learn "+WORDS.length+" words from Pet Therapy: How Animals and Humans Heal Each Other. "+WORDS.map(w=>w.w).join(', ')+". For each word, you'll hear what it means, see it in the article, and try a quick check. Then you'll practice all the words.");
+    if(st.k==='learn'){ const w=WORDS[st.i]; h.onclick=()=>say(`${w.w}. ${w.pos}. ${w.w} means ${w.def}. In the article, paragraph ${w.para}: ${w.artSay} Think of it like this: ${w.kidSay} ${w.tipSay||''} ${w.rootSay}`); }
+  }
+}
+
+function qHTML(label,q,ans,big){
+  const done=ans!==undefined;
+  return `<div class="q" ${big?'style="border-top:none"':''}>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="qlab">${label}</span><button class="btn hear" id="hq">🔊 Hear it</button></div>
+    <div class="qtext">${q.t}</div>
+    <div class="opts">${q.o.map((o,i)=>{
+      let c='';
+      if(done){ if(i===q.a)c='right'; else if(i===ans)c='wrong'; }
+      return `<button class="opt ${c}" data-i="${i}" ${done?'disabled':''}><span class="l">${L[i]}</span><span>${o}</span></button>`;
+    }).join('')}</div>
+    <div class="fb ${done?'show '+(ans===q.a?'good':'bad'):''}" id="fb">${done?fbText(q,ans):''}</div>
+  </div>`;
+}
+function fbText(q,ans){ return (ans===q.a?'<b>✅ Correct!</b> ':'<b>Not quite.</b> The answer is <b>'+L[q.a]+'</b>. ')+q.ex; }
+function bindQ(q,ans,store){
+  document.getElementById('hq').onclick=()=>sayQ(q);
+  if(ans!==undefined) return;
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const v=+b.dataset.i; store(v); save();
+    document.querySelectorAll('.opt').forEach(o=>{ o.disabled=true; const i=+o.dataset.i; if(i===q.a)o.classList.add('right'); else if(i===v)o.classList.add('wrong'); });
+    const fb=document.getElementById('fb'); fb.className='fb show '+(v===q.a?'good':'bad'); fb.innerHTML=fbText(q,v);
+    document.getElementById('nx').disabled=false;
+    say((v===q.a?'Correct! ':'Not quite. The answer is '+L[q.a]+'. ')+q.ex);
+    fb.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+}
+
+/* ================= CONFETTI ================= */
+function confetti(){
+  const c=document.getElementById('confetti'),x=c.getContext('2d'); c.width=innerWidth; c.height=innerHeight;
+  const cols=['#3f6b3a','#7fb35a','#ffe36b','#b98a55','#2f6db5','#e4572e','#f2a2c0'];
+  const P=Array.from({length:180},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,w:6+Math.random()*8,h:8+Math.random()*10,vx:-2+Math.random()*4,vy:2+Math.random()*4,r:Math.random()*6,vr:-.2+Math.random()*.4,col:cols[Math.random()*cols.length|0]}));
+  let t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.04;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.col;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore();});if(++t<260)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height);})();
+}
+
+if(S.step<0||S.step>=STEPS.length) S.step=0;
+render();
+window.addEventListener('pagehide',()=>{ save(); if(synth) synth.cancel(); });
+</script>
+</body>
+</html>
